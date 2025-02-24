@@ -1,0 +1,19 @@
+meta {
+  name: product-variant
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{fillcart_base_url}}/api/v2/product-variants/:product_id
+  body: none
+  auth: none
+}
+
+params:query {
+  ~filter[options]: 19
+}
+
+params:path {
+  product_id: 6e486e70-fae2-4cb1-a59c-82d8d0260cf7
+}

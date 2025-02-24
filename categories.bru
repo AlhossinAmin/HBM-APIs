@@ -1,0 +1,15 @@
+meta {
+  name: categories
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://fillcart.hbm.studio/api/v2/categories?include=media
+  body: none
+  auth: none
+}
+
+params:query {
+  include: media
+}

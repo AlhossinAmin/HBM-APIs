@@ -1,0 +1,42 @@
+meta {
+  name: single product
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{fillcart_base_url}}/api/v2/products/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 6e486e70-fae2-4cb1-a59c-82d8d0260cf7
+}
+
+docs {
+  option_values in variant:
+  {
+    "id": 18,
+    "title": "Black",
+    "value": "#000000",
+    "option_id": "6c3c3504-4c3f-4df2-8f54-6ebc3a846dc9",
+    "option_title": "color1",
+    "type": "COLOR",
+    "order": 1
+  },
+          
+  option_values in options array look like this:
+  {
+    "id": 2,
+    "title": "A4",
+    "value": "A4",
+    "order": 1
+  },
+  {
+    "id": 3,
+    "title": "A5",
+    "value": "A5",
+    "order": 2
+  }
+}

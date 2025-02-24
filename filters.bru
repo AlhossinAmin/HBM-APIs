@@ -1,0 +1,74 @@
+meta {
+  name: filters
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{staging_base_url}}/api/v3/filters?category_id=71dc7b1c-1257-423b-9171-5db94081b8a3
+  body: none
+  auth: none
+}
+
+params:query {
+  category_id: 71dc7b1c-1257-423b-9171-5db94081b8a3
+}
+
+docs {
+  ## Basic usage
+  
+  ```json
+  {
+    "meta": {
+      "code": 200,
+      "errors": []
+    },
+    "data": {
+      "price": {
+        "min_price": 0,
+        "max_price": 119590,
+        "currency": "EGP"
+      },
+      "options": [
+        {
+          "id": "22b4472d-9636-4736-913b-66e7890e9c0e",
+          "title": "notebook_sizes",
+          "type": "TEXT",
+          "option_values": [
+            {
+              "id": 2,
+              "title": "A4",
+              "value": "A4",
+              "option_id": "22b4472d-9636-4736-913b-66e7890e9c0e",
+              "option_title": "notebook_sizes",
+              "type": "TEXT",
+              "order": 1
+            }
+          ]
+        }
+      ]
+    },
+    "pagination": {}
+  }
+  ```
+  
+  
+  ## comments 
+  
+  - when calling the filters api without `category_id` query i get an error:
+  ```json
+  {
+    "meta": {
+      "code": 400,
+      "errors": [
+        {
+          "type": "INVALID_CATEGORY_ID",
+          "message": "The category id field is required."
+        }
+      ],
+      "exception": "ValidationExceptionBag"
+    },
+    "pagination": {}
+  }
+  ```
+}

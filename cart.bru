@@ -1,0 +1,35 @@
+meta {
+  name: cart
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://fillcart.hbm.studio/api/v1/my-cart
+  body: none
+  auth: none
+}
+
+params:query {
+  ~cart_id: sdfdfs108c1f0e-5e40-4c54-8517-59b560bbbfa0
+}
+
+docs {
+  - we need better error message for cart init api:
+  
+  ```json
+  {
+    "meta": {
+      "code": 404,
+      "errors": [
+        {
+          "type": "ModelNotFoundException",
+          "message": "No query results for model [_34ml\\CheckoutModule\\Models\\Cart] sdfdfs108c1f0e-5e40-4c54-8517-59b560bbbfa0"
+        }
+      ],
+      "exception": "ModelNotFoundException"
+    },
+    "pagination": {}
+  }
+  ```
+}
