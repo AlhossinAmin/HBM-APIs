@@ -1,0 +1,27 @@
+meta {
+  name: auth
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{landlord_url}}/api/v1/domain
+  body: formUrlEncoded
+  auth: none
+}
+
+body:json {
+  {
+    email: {{EMAIL}},
+    password:{{PASSWORD}}
+  }
+}
+
+body:form-urlencoded {
+  email: {{EMAIL}}
+  password: {{PASSWORD}}
+}
+
+script:post-response {
+  bru.setVar("tenant_auth_token",res.body.data.token)
+}

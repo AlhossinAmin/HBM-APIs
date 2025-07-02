@@ -5,13 +5,17 @@ meta {
 }
 
 get {
-  url: {{fillcart_base_url}}/api/v2/products/:id
+  url: {{staging_base_url}}/api/v2/products/:id?include=categories
   body: none
   auth: none
 }
 
+params:query {
+  include: categories
+}
+
 params:path {
-  id: 6e486e70-fae2-4cb1-a59c-82d8d0260cf7
+  id: 1a28d19a-29c1-4e34-8aa8-443f15c2e72c
 }
 
 docs {

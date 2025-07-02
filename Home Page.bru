@@ -1,0 +1,33 @@
+meta {
+  name: Home Page
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{staging_base_url}}/api/v1/home-page
+  body: none
+  auth: none
+}
+
+docs {
+  home page sections/components should never be empty :
+      {
+        "ref_no": 2,
+        "order": 4,
+        "component": []
+      },
+      {
+        "ref_no": 3,
+        "order": 5,
+        "component": []
+      },
+      {
+        "ref_no": 4,
+        "order": 6,
+        "component": []
+      }
+    ],
+    "pagination": {}
+  }
+}

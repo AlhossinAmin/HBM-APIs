@@ -1,0 +1,34 @@
+meta {
+  name: builder
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{landlord_url}}/api/v1/informative-pages?expand=true
+  body: none
+  auth: bearer
+}
+
+params:query {
+  expand: true
+}
+
+headers {
+  X-User-Agent: Web/Preview
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {}
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

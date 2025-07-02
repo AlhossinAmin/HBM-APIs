@@ -1,0 +1,49 @@
+meta {
+  name: Update Colors
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{landlord_url}}/api/v1/atomic-profiles/{{profile_id}}/color-tokens
+  body: json
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "tokens": {
+      "primary": {
+        "0": "#FFFFFF",
+        "50": "#E7F2FD",
+        "100": "#B4D7F8",
+        "200": "#90C4F4",
+        "300": "#5EA9F0",
+        "400": "#3E99ED",
+        "500": "#0E7FE8",
+        "600": "#0D74D3",
+        "700": "#0A5AA5",
+        "800": "#084680",
+        "900": "#063561"
+      }
+    }
+  }
+}
+
+vars:pre-request {
+  profile_id: 60fad4b2-dd22-466b-83b1-218f7f728263
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

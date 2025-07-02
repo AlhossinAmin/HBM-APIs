@@ -1,0 +1,29 @@
+meta {
+  name: Read Colors
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{landlord_url}}/api/v1/atomic-profiles/{{profile_id}}/color-tokens
+  body: none
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+vars:pre-request {
+  profile_id: 60fad4b2-dd22-466b-83b1-218f7f728263
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

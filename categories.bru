@@ -1,11 +1,11 @@
 meta {
   name: categories
   type: http
-  seq: 7
+  seq: 4
 }
 
 get {
-  url: https://fillcart.hbm.studio/api/v2/categories?include=media
+  url: {{staging_base_url}}/api/v2/categories?include=media
   body: none
   auth: none
 }

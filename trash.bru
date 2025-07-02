@@ -1,13 +1,20 @@
 meta {
   name: trash
   type: http
-  seq: 3
+  seq: 2
 }
 
 get {
-  url: 
+  url: https://fekra.hamburgermenu.app/api/v2/products?per_page=15&page=2&filter[trendy]=1&filter[featured]=1
   body: none
   auth: bearer
+}
+
+params:query {
+  per_page: 15
+  page: 2
+  filter[trendy]: 1
+  filter[featured]: 1
 }
 
 auth:bearer {
