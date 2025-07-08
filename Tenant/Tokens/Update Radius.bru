@@ -1,0 +1,36 @@
+meta {
+  name: Update Radius
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}/border-radius
+  body: json
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "tokens": {
+        "r1": "999px",
+        "r2": "12px",
+        "r3": "12px",
+        "r4": "12px"
+      }
+  }
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

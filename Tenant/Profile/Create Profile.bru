@@ -1,12 +1,12 @@
 meta {
-  name: Read Profiles
+  name: Create Profile
   type: http
-  seq: 1
+  seq: 3
 }
 
-get {
-  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}
-  body: none
+post {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles
+  body: json
   auth: bearer
 }
 
@@ -16,6 +16,12 @@ headers {
 
 auth:bearer {
   token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "name":"quills"
+  }
 }
 
 vars:pre-request {

@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{landlord_url}}/api/v1/domain
+  url: {{landlord_url}}/api/v1/tenant-builder/login
   body: formUrlEncoded
   auth: none
 }
@@ -24,4 +24,5 @@ body:form-urlencoded {
 
 script:post-response {
   bru.setVar("tenant_auth_token",res.body.data.token)
+  bru.setVar("profile_id",res.body.data.atomic_profile)
 }

@@ -1,11 +1,11 @@
 meta {
-  name: Read Profiles
+  name: Delete Profile
   type: http
-  seq: 1
+  seq: 5
 }
 
-get {
-  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}
+delete {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/1189f40a-e65c-4fb5-9527-26486c0b1732
   body: none
   auth: bearer
 }
@@ -16,6 +16,12 @@ headers {
 
 auth:bearer {
   token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "name":"quills"
+  }
 }
 
 vars:pre-request {

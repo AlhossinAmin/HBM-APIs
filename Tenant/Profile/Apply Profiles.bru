@@ -1,12 +1,12 @@
 meta {
-  name: Read Profiles
+  name: Apply Profiles
   type: http
-  seq: 1
+  seq: 4
 }
 
-get {
-  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}
-  body: none
+post {
+  url: {{landlord_url}}/api/v1/atomic-design/apply-profile-to-tenant
+  body: json
   auth: bearer
 }
 
@@ -16,6 +16,12 @@ headers {
 
 auth:bearer {
   token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "profile_id": "60fad4b2-dd22-466b-83b1-218f7f728263"
+  }
 }
 
 vars:pre-request {
