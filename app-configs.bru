@@ -1,0 +1,19 @@
+meta {
+  name: app-configs
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{staging_base_url}}/api/v2/app_configs
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,41 @@
+meta {
+  name: Update Component Styles
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}/component-style
+  body: json
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "styles": {
+      "VerticalProductCell": "A",
+      "RangeSlider": "A",
+      "TextFilterChip": "A",
+      "PriceFilterChip": "A",
+      "ColorFilterChip": "A",
+      "WebSearchInput": "A",
+      "RateFilterChip": "A",
+      "QuantityButton": "A",
+      "CartButton": "C"
+    }
+  }
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

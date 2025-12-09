@@ -1,0 +1,10 @@
+{
+  "meta": { "code": 200, "errors": [] },
+  "data": {
+    "url": "https://fillcart.hamburgermenu.app",
+    "subdomain": "fillcart",
+    "token": "117|ZTXaiK56kfYG5geoVoOy6U7HPDVkqe4XwtgjjCHi5ba0fe72",
+    "refresh_token": "Q0fIP8QOB3L9NPrgXhR4r7YZBY6ii5e1twbmRGsv1NNY8VKwL57i78BQ8VkNtqx0"
+  },
+  "pagination": {}
+}

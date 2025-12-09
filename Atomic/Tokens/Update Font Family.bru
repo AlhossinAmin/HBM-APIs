@@ -1,0 +1,36 @@
+meta {
+  name: Update Font Family
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}/font-family
+  body: json
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "tokens": {
+      "currency": {
+        "name": "Lato",
+        "link": "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      }
+    }
+  }
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

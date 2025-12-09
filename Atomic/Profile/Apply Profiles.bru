@@ -1,0 +1,35 @@
+meta {
+  name: Apply Profiles
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{landlord_url}}/api/v1/atomic-design/apply-profile-to-tenant
+  body: json
+  auth: bearer
+}
+
+headers {
+  ~subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "profile_id": "60fad4b2-dd22-466b-83b1-218f7f728263"
+  }
+}
+
+vars:pre-request {
+  profile_id: 2b6080b9-6492-4eff-a091-36408692590f
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

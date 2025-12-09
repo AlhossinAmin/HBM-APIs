@@ -1,17 +1,18 @@
 meta {
-  name: builder
+  name: Get Pages
   type: http
   seq: 3
 }
 
 get {
-  url: {{landlord_url}}/api/v1/informative-pages?expand=true
+  url: {{landlord_url}}/api/v1/atomic-design/informative-pages?expand=true
   body: none
   auth: bearer
 }
 
 params:query {
   expand: true
+  ~published_only: true
 }
 
 headers {

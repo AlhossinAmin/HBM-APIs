@@ -1,21 +1,25 @@
 meta {
   name: Read Profiles
   type: http
-  seq: 3
+  seq: 1
 }
 
 get {
-  url: {{landlord_url}}/api/v1/atomic-profiles
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}
   body: none
   auth: bearer
 }
 
 headers {
-  subdomain: fillcart
+  ~subdomain: fillcart
 }
 
 auth:bearer {
   token: {{tenant_auth_token}}
+}
+
+vars:pre-request {
+  profile_id: 2b6080b9-6492-4eff-a091-36408692590f
 }
 
 script:pre-request {

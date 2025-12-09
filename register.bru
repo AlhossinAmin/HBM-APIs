@@ -1,0 +1,37 @@
+meta {
+  name: register
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{dev_base_url}}/api/v1/register
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+      "first_name":"jjjj",
+      "last_name":"jjjj",
+      "mobile":"01009929666",
+      "country_code":"+20",
+      "email":"jelly+21@jelly.com",
+      "password": "jelly123",
+      "device_name": "postman"
+  }
+}
+
+body:form-urlencoded {
+  email: jelly@jelly.com
+  password: jelly123
+}
+
+settings {
+  encodeUrl: true
+}

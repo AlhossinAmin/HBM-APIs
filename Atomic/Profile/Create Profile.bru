@@ -1,0 +1,35 @@
+meta {
+  name: Create Profile
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles
+  body: json
+  auth: bearer
+}
+
+headers {
+  ~subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "name":"quills"
+  }
+}
+
+vars:pre-request {
+  profile_id: 2b6080b9-6492-4eff-a091-36408692590f
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

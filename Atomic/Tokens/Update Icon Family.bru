@@ -1,0 +1,35 @@
+meta {
+  name: Update Icon Family
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}/icon-family
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "icon-family": "default"
+  }
+}
+
+body:form-urlencoded {
+  icon_family: default
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

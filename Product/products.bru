@@ -5,12 +5,7 @@ meta {
 }
 
 get {
-  url: {{staging_base_url}}/api/v2/products?categories=db61af9f-32ab-4f0b-b219-08569418c8d0&per_page=50
+  url: {{staging_base_url}}/api/v2/products
   body: none
-  auth: inherit
-}
-
-params:query {
-  categories: db61af9f-32ab-4f0b-b219-08569418c8d0
-  per_page: 50
+  auth: none
 }

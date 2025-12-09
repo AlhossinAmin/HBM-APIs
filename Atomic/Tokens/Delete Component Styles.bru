@@ -1,0 +1,50 @@
+meta {
+  name: Delete Component Styles
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{landlord_url}}/api/v1/atomic-design/atomic-profiles/{{profile_id}}/component-style
+  body: json
+  auth: bearer
+}
+
+headers {
+  subdomain: fillcart
+}
+
+auth:bearer {
+  token: {{tenant_auth_token}}
+}
+
+body:json {
+  {
+    "key": 
+      "GeneralInput": "A",
+      "OTPInput": "A",
+      "PasswordInput": "A",
+      "DropdownInput": "A",
+      "RadioInput": "A",
+      "CheckboxInput": "A",
+      "WebSerachInput": "A",
+      "AddressCard": "A",
+      "VerticalProductCell": "A",
+      "HorizontalProductCell": "A",
+      "ProductGallery": "A",
+      "Reviews": "A",
+      "CategoryChipsGroup": "A",
+      "OptionsChipsGroup": "A",
+      "MediaChipsGroup": "A",
+      "FilterChipsGroup": "A",
+      "RangeSlider": "A",
+      "SocialCell": "A"
+    }
+  }
+}
+
+script:pre-request {
+  if(!bru.getVar('tenant_auth_token')){
+    bru.runRequest("Tenant/auth")
+  }
+}

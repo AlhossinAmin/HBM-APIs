@@ -1,0 +1,32 @@
+meta {
+  name: login
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{dev_base_url}}/api/v1/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+    "email": "saad@34ml.com",
+    "password":"123456"
+  }
+}
+
+body:form-urlencoded {
+  email: jelly@jelly.com
+  password: jelly123
+}
+
+settings {
+  encodeUrl: true
+}

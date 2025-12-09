@@ -5,18 +5,11 @@ meta {
 }
 
 get {
-  url: https://fekra.hamburgermenu.app/api/v2/products?per_page=15&page=2&filter[trendy]=1&filter[featured]=1
-  body: none
-  auth: bearer
+  url: http://localhost:3000/api/orders
+  body: json
+  auth: none
 }
 
-params:query {
-  per_page: 15
-  page: 2
-  filter[trendy]: 1
-  filter[featured]: 1
-}
-
-auth:bearer {
-  token: Bearer 251|qGdJGuEfZLGoj4YfnQlN9jBjnsmZDgp79nTkG08jfbe6160c
+headers {
+  Notion-Version: 2022-06-28
 }
