@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/api/orders
+  url: https://fillcart.staging.hbm.studio/api/v2/products/baec2ef5-3a7d-48d9-8e52-a05708fd32e6?include=feedbacks.writer,brand,categories
   body: json
   auth: none
+}
+
+params:query {
+  include: feedbacks.writer,brand,categories
 }
 
 headers {

@@ -5,14 +5,17 @@ meta {
 }
 
 get {
-  url: {{landlord_url}}/api/v1/atomic-design/informative-pages?expand=true
+  url: {{landlord_url}}/api/v1/atomic-design/informative-pages/:id
   body: none
   auth: bearer
 }
 
 params:query {
-  expand: true
   ~published_only: true
+}
+
+params:path {
+  id: 019a90e3-23f8-753f-949b-000b99e8a740
 }
 
 headers {
